@@ -32,6 +32,7 @@ def sensdemouvement(a,b):
     else :
         return 11
 
+
 stocks = 10
 stock_price = 1
 money = 20
@@ -48,7 +49,17 @@ mousey = 0
 maxrollpricechange = 300
 minrollpricechange = 0
 
-
+def drawprogress():
+    global money
+    global goal
+    col = 10
+    bars = (((int(money)*100)/goal)*65)/100
+    for i in range(1,int(bars)+1) :
+        if col == 10:
+            col = 9
+        else :
+            col = 10
+        pyxel.line(116,80 - i,153,80-i,col)
 
 def buy() :
     global money
@@ -68,8 +79,9 @@ def sell() :
             money += stock_price
             stocks -= 1 
             sold += 1
-
-
+#-------------------------------------------------------
+#                    GameFuncs
+#---------------------------------------------------------
 def update():
     global money
     global stock_price
@@ -91,7 +103,6 @@ def update():
     if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
         mousey = pyxel.mouse_x
         mousex = pyxel.mouse_y
-        print(str(mousex) + " ; " + str(mousey))
         if mousey > 116 and mousey < 158 and mousex > 104 and mousex < 114:
             sell()
         if mousey > 116 and mousey < 158 and mousex > 93 and mousex < 103:
@@ -143,10 +154,12 @@ def draw():
     global time_m
 
     pyxel.cls(4)
-
+    
     pyxel.rect(9, 5, 103, 76, 0)
     pyxel.rect(115, 5, 40, 110, 5)
     pyxel.rect(10, 85, 100, 30, 5)
+    pyxel.rect(116,15,38,65,13)
+    drawprogress()
     #5 : stock = 5 ; 80 : stock = 0
 
     if len(stock_history) >= 2:
