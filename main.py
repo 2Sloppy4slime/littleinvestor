@@ -173,6 +173,7 @@ def update():
 def draw():
     global stock_history
     global goal
+    global money
     global time_s
     global time_m
     global score
