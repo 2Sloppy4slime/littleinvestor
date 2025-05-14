@@ -202,10 +202,11 @@ def draw():
             pyxel.text(114,7," make " + str(goal) ,7)
             
             pyxel.text(125,85,str(time_m) + " : " + str(time_s),7)
+            pyxel.text(95,115,"@SloppySlime2025",7)
         case 1 :
             pyxel.text(70,60,"YOU WIN",7)
             pyxel.text(30,80,"(press spacebar to play again)",7)
             pyxel.text(30,90,"your score: " + str(score),7)
-
-
+            pyxel.text(100,120,"@SloppySlime2025",7)
+            
 pyxel.run(update, draw)
